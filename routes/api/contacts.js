@@ -7,6 +7,7 @@ const {
   getContactById,
   addContact,
   updateContact,
+  updateStatusContact,
   deleteContact,
 } = require("../../controllers/contacts-controller");
 
@@ -21,6 +22,12 @@ router.put(
   isValidId,
   validateBody(shemas.addShema),
   updateContact
+);
+router.patch(
+  "/:contactId/favorite",
+  isValidId,
+  validateBody(shemas.updateFavoriteSchema),
+  updateStatusContact
 );
 router.delete("/:contactId", isValidId, deleteContact);
 
