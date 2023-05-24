@@ -1,10 +1,11 @@
 const express = require("express");
 
+const { register } = require("../../controllers/auth-controller");
+const { validateBody } = require("../../middlewares");
+const { schemas } = require("../../models/user");
+
 const router = express.Router();
 
-const { validateBody } = require("../../middlewares");
-const { shemas } = require("../../models/user");
-
-router.post("/register", validateBody(shemas.registerSchema));
+router.post("/register", validateBody(schemas.registerSchema), register);
 
 module.exports = router;

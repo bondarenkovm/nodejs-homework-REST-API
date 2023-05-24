@@ -42,8 +42,8 @@ const updateFavoriteSchema = Joi.object({
     .messages({ "any.required": "Missing field favorite" }),
 });
 
-const shemas = { addShema, updateFavoriteSchema };
+const schemas = { addShema, updateFavoriteSchema };
 
 const Contact = model("contact", contactSchema);
 
-module.exports = { Contact, shemas };
+module.exports = { Contact, schemas };

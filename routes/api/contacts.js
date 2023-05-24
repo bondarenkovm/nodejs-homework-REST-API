@@ -11,22 +11,22 @@ const {
   deleteContact,
 } = require("../../controllers/contacts-controller");
 
-const { shemas } = require("../../models/contact");
+const { schemas } = require("../../models/contact");
 const { validateBody, isValidId } = require("../../middlewares");
 
 router.get("/", getAllContacts);
 router.get("/:contactId", isValidId, getContactById);
-router.post("/", validateBody(shemas.addShema), addContact);
+router.post("/", validateBody(schemas.addShema), addContact);
 router.put(
   "/:contactId",
   isValidId,
-  validateBody(shemas.addShema),
+  validateBody(schemas.addShema),
   updateContact
 );
 router.patch(
   "/:contactId/favorite",
   isValidId,
-  validateBody(shemas.updateFavoriteSchema),
+  validateBody(schemas.updateFavoriteSchema),
   updateStatusContact
 );
 router.delete("/:contactId", isValidId, deleteContact);
